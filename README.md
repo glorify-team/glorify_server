@@ -16,6 +16,10 @@ DATABASES = {'default': {
 STATIC_URL = '/static/' # your static url configuration
 
 STATIC_ROOT = 'basedir/' + STATIC_URL # your static root configuration
+
+DEBUG = True # your debug configuration. False in production!
+
+ALLOWED_HOSTS = ['localhost', '127.0.0.1'] # your allowed hosts configuration
 ```
 * migrate the project: `python manage.py migrate`
 * start the project: `python manage.py runserver`
