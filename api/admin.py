@@ -19,5 +19,4 @@ class MassAdmin(admin.ModelAdmin):
 
 admin.site.register(Song)
 admin.site.register(Author)
-admin.site.register(MassMoment)
 admin.site.register(Mass, MassAdmin)

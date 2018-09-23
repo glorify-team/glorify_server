@@ -24,12 +24,12 @@ class Song(models.Model):
     title = models.CharField(max_length=40, null=False, blank=False, verbose_name="Nome da música")
     lyrics = models.TextField(null=False, blank=False, verbose_name="Letra")
     author = models.ForeignKey(Author, null=True, blank=True, verbose_name="Autor")
-    video_url = models.URLField(Author, null=True, blank=True)
+    video_url = models.URLField(null=True, blank=True, verbose_name="Link do YouTube")
 
     def __unicode__(self):
         return '%s - %s' % (
-            self.title, self.author.name
-            if self.author is not None
+            self.title,
+            self.author.name if self.author is not None
             else 'Autor Desconhecido'
         )
 
@@ -73,7 +73,8 @@ class MassMoment(models.Model):
     songs = models.ManyToManyField(Song, verbose_name="Músicas do momento")
 
     def __unicode__(self):
-        return self.name
+        return 'momento %s da missa do dia %s' % \
+               ([item for item in self.CHOICES if item[0] == self.moment_name][0][1], self.mass.day)
 
     class Meta:
         verbose_name = 'Momento da missa'

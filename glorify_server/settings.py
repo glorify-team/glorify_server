@@ -23,6 +23,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 DJANGO_APPS = [
+    'jet', # jet must come before admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,8 +39,7 @@ PROJECT_APPS = [
 EXTERNAL_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
-    'dal',
-    'dal_select2'
+    'jet.dashboard',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + EXTERNAL_APPS
@@ -110,6 +110,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = STATIC_URL
+
 # Config imports
 
 SECRET_KEY = glorify_server.config.SECRET_KEY
@@ -125,3 +127,44 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     )
 }
+
+# Jet config
+
+JET_DEFAULT_THEME = 'default'
+
+JET_THEMES = [
+    {
+        'theme': 'default',
+        'color': '#47bac1',
+        'title': 'Default'
+    },
+    {
+        'theme': 'green',
+        'color': '#44b78b',
+        'title': 'Green'
+    },
+    {
+        'theme': 'light-green',
+        'color': '#2faa60',
+        'title': 'Light Green'
+    },
+    {
+        'theme': 'light-violet',
+        'color': '#a464c4',
+        'title': 'Light Violet'
+    },
+    {
+        'theme': 'light-blue',
+        'color': '#5EADDE',
+        'title': 'Light Blue'
+    },
+    {
+        'theme': 'light-gray',
+        'color': '#222',
+        'title': 'Light Gray'
+    }
+]
+
+JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
+
+JET_APP_INDEX_DASHBOARD = 'dashboard.CustomAppIndexDashboard'
