@@ -107,12 +107,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+#
+# should go to config.py
+# BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+# STATIC_URL = '/static/'
+# STATIC_ROOT = BASE_DIR + STATIC_URL
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+STATIC_URL = glorify_server.config.STATIC_URL
 
-STATIC_URL = '/static/'
-
-STATIC_ROOT = BASE_DIR + STATIC_URL
+STATIC_ROOT = glorify_server.config.STATIC_ROOT
 
 # Config imports
 
