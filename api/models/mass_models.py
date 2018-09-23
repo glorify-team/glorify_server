@@ -37,6 +37,17 @@ class Song(models.Model):
         verbose_name = 'Música'
 
 
+class Mass(models.Model):
+    description = models.TextField(null=True, blank=True, verbose_name="Sobre a missa")
+    day = models.DateField(null=False, blank=False, verbose_name="Dia")
+
+    def __unicode__(self):
+        return '%s - %s' % (self.description, self.day)
+
+    class Meta:
+        verbose_name = 'Missa'
+
+
 class MassMoment(models.Model):
     CHOICES = (
         ('EN', 'CANTO DE ENTRADA'),
@@ -57,6 +68,7 @@ class MassMoment(models.Model):
     )
     moment_name = models.CharField(max_length=2, choices=CHOICES, null=False, blank=False,
                                    verbose_name="Momento da Missa")
+    mass = models.ForeignKey(Mass, null=True)
     reflection = models.TextField(null=True, blank=True, verbose_name="reflexão")
     songs = models.ManyToManyField(Song, verbose_name="Músicas do momento")
 
@@ -66,18 +78,6 @@ class MassMoment(models.Model):
     class Meta:
         verbose_name = 'Momento da missa'
         verbose_name_plural = 'Momentos da missa'
-
-
-class Mass(models.Model):
-    description = models.TextField(null=True, blank=True)
-    day = models.DateField(null=False, blank=False)
-    massMoments = models.ManyToManyField(MassMoment)
-
-    def __unicode__(self):
-        return '%s - %s' % (self.description, self.day)
-
-    class Meta:
-        verbose_name = 'Missa'
 
 
 # User post save signal: create token for DRF authentication
