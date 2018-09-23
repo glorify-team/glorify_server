@@ -21,5 +21,5 @@ admin.site.register(Song)
 admin.site.register(Author)
 admin.site.register(Mass, MassAdmin)
 
-admin.site.site_header = "Glorify"  
+admin.site.site_header = "Glorify"
 admin.site.site_title = "Glorify - Sua liturgia acessível"

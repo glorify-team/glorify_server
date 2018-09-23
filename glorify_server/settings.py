@@ -17,9 +17,9 @@ import glorify_server.config
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = glorify_server.config.DEBUG
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'api.gs.eti.br']
+ALLOWED_HOSTS = glorify_server.config.ALLOWED_HOSTS
 
 # Application definition
 DJANGO_APPS = [
@@ -127,8 +127,6 @@ DATABASES = glorify_server.config.DATABASES
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        # 'rest_framework.authentication.BasicAuthentication',
-        # 'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.TokenAuthentication',
     )
 }
