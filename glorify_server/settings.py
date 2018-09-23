@@ -19,7 +19,7 @@ import glorify_server.config
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'api.gs.eti.br']
 
 # Application definition
 DJANGO_APPS = [
