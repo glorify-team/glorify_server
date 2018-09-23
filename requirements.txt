@@ -3,6 +3,7 @@ django-cors-headers==2.1.0
 django-filter==1.0.4
 django-jet==1.0.7
 djangorestframework==3.6.3
+gunicorn==19.9.0
 Markdown==2.6.8
 pytz==2018.5
 whitenoise==3.2
