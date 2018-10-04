@@ -40,11 +40,13 @@ EXTERNAL_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'jet.dashboard',
+    'corsheaders'
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + EXTERNAL_APPS
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -122,6 +124,15 @@ STATIC_ROOT = glorify_server.config.STATIC_ROOT
 SECRET_KEY = glorify_server.config.SECRET_KEY
 
 DATABASES = glorify_server.config.DATABASES
+
+CORS_ORIGIN_ALLOW_ALL = glorify_server.config.CORS_ORIGIN_ALLOW_ALL
+
+if glorify_server.config.CORS_ORIGIN_WHITELIST is not None:
+    CORS_ORIGIN_WHITELIST = glorify_server.config.CORS_ORIGIN_WHITELIST
+
+# (
+#     '<YOUR_DOMAIN>[:PORT]',
+# )
 
 # Django REST framework settings
 
