@@ -13,9 +13,12 @@ class SongSerializer(serializers.ModelSerializer):
     class Meta:
         model = Song
         fields = '__all__'
+        depth = 1
 
 
 class MassMomentSerializer(serializers.ModelSerializer):
+    songs = SongSerializer(read_only=True, many=True)
+
     class Meta:
         model = MassMoment
         fields = ['moment_name', 'reflection', 'songs']
@@ -25,11 +28,11 @@ class MassSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mass
         fields = '__all__'
-        depth = 2
 
 
 class RetrieveMassSerializer(serializers.ModelSerializer):
+    mass_moments = MassMomentSerializer(read_only=True, many=True)
+
     class Meta:
         model = Mass
         fields = ['id', 'day', 'description', 'mass_moments']
-        depth = 2
