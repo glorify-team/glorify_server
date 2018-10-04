@@ -23,7 +23,7 @@ ALLOWED_HOSTS = glorify_server.config.ALLOWED_HOSTS
 
 # Application definition
 DJANGO_APPS = [
-    'jet', # jet must come before admin
+    'jet',  # jet must come before admin
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,7 +128,10 @@ DATABASES = glorify_server.config.DATABASES
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
-    )
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly',
+    ),
 }
 
 # Jet config
