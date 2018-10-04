@@ -38,6 +38,7 @@ class Song(models.Model):
 
 
 class Mass(models.Model):
+    title = models.CharField(max_length=30, null=True, blank=True, verbose_name="Título")
     description = models.TextField(null=True, blank=True, verbose_name="Sobre a missa")
     day = models.DateField(null=False, blank=False, verbose_name="Dia")
 
@@ -66,7 +67,7 @@ class MassMoment(models.Model):
         ('CO', 'CANTO FINAL'),
         ('OT', 'OUTROS')
     )
-    moment_name = models.CharField(max_length=2, choices=CHOICES, null=False, blank=False,
+    moment_type = models.CharField(max_length=2, choices=CHOICES, null=False, blank=False,
                                    verbose_name="Momento da Missa")
     mass = models.ForeignKey(Mass, null=True, related_name="mass_moments")
     reflection = models.TextField(null=True, blank=True, verbose_name="reflexão")
