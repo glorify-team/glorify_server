@@ -21,7 +21,7 @@ class MassMomentSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = MassMoment
-        fields = ['moment_name', 'reflection', 'songs']
+        fields = ['moment_type', 'reflection', 'songs']
 
 
 class MassSerializer(serializers.ModelSerializer):
