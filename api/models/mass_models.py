@@ -75,7 +75,7 @@ class MassMoment(models.Model):
 
     def __unicode__(self):
         return 'momento %s da missa do dia %s' % \
-               ([item for item in self.CHOICES if item[0] == self.moment_name][0][1], self.mass.day)
+               ([item for item in self.CHOICES if item[0] == self.moment_type][0][1], self.mass.day)
 
     class Meta:
         verbose_name = 'Momento da missa'
