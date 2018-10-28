@@ -51,21 +51,21 @@ class Mass(models.Model):
 
 class MassMoment(models.Model):
     CHOICES = (
-        ('EN', 'CANTO DE ENTRADA'),
-        ('EP', 'EM NOME DO PAI'),
-        ('AP', 'ATO PENITENCIAL'),
-        ('GL', 'GLÓRIA'),
-        ('SM', 'SALMO'),
-        ('AL', 'ALELUIA'),
-        ('OF', 'OFERTÓRIO'),
-        ('ST', 'SANTO'),
-        ('PC', 'PAZ DE CRISTO'),
-        ('CD', 'CORDEIRO DE DEUS'),
-        ('CM', 'COMUNHÃO'),
-        ('PC', 'PÓS COMUNHÃO'),
-        ('NS', 'ORAÇÃO DE NOSSA SENHORA'),
-        ('CO', 'CANTO FINAL'),
-        ('OT', 'OUTROS')
+        ('EN', 'Canto de entrada'),
+        ('EP', 'Em nome do Pai'),
+        ('AP', 'Ato penitencial'),
+        ('GL', 'Glória'),
+        ('SM', 'Salmo'),
+        ('AL', 'Aleluia'),
+        ('OF', 'Ofertório'),
+        ('ST', 'Santo'),
+        ('PC', 'Paz de Cristo'),
+        ('CD', 'Cordeiro de Deus'),
+        ('CM', 'Comunhão'),
+        ('PC', 'Pós comunhão'),
+        ('NS', 'Oração de Nossa Senhora'),
+        ('CO', 'Canto final'),
+        ('OT', 'Outros'     )
     )
     moment_type = models.CharField(max_length=2, choices=CHOICES, null=False, blank=False,
                                    verbose_name="Momento da Missa")

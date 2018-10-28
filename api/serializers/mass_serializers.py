@@ -18,10 +18,11 @@ class SongSerializer(serializers.ModelSerializer):
 
 class MassMomentSerializer(serializers.ModelSerializer):
     songs = SongSerializer(read_only=True, many=True)
+    moment_type = serializers.CharField(source="get_moment_type_display")
 
     class Meta:
         model = MassMoment
-        fields = ['moment_type', 'reflection', 'songs']
+        fields = ['moment_type', 'reflection', 'songs', 'id']
 
 
 class MassSerializer(serializers.ModelSerializer):
