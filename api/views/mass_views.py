@@ -21,7 +21,8 @@ class MassViewSet(viewsets.ViewSet):
     queryset = Mass.objects.all()
 
     def list(self, _request):
-        serializer = MassSerializer(self.queryset, many=True)
+        queryset = Mass.objects.all()
+        serializer = MassSerializer(queryset, many=True)
         return Response(serializer.data)
 
     def retrieve(self, _request, pk=None):
